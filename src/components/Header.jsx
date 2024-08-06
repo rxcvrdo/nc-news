@@ -3,7 +3,7 @@ function Header(){
     return (
         <>
         <h1> 
-            <Link to="/">^ NC NEWS</Link>
+            <Link to="/articles">^ NC NEWS</Link>
         </h1>
         </>
     )

@@ -22,12 +22,12 @@ const [searchTerm, setSearchTerm] = useState("")
       </div>
       <Search setSearchTerm={setSearchTerm}/>
       <Routes>
-        <Route path="/" element ={<ArticleList searchTerm={searchTerm} />}/>
+        <Route path="/articles" element ={<ArticleList searchTerm={searchTerm} />}/>
         <Route path="/post-article" element={<PostArticle/>}/>
         <Route path="/users" element={<Users/>}/>
         {""}
         <Route path="/articles/:article_id" element={<SingleArticle/>}/>
-</Routes>
+      </Routes>
 
     </main>
 
