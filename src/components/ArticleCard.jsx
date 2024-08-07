@@ -20,13 +20,14 @@ function ArticleCard({article}) {
 
 
     return (
+        < Link to={`/articles/${article.article_id}`}>
         <section className="article-card">
-            <Link to ={`/articles/${article.article_id}`}element={<SingleArticle/>}/>
             <h3 className="article-card-title"> {article.title}</h3>
             <h5>{article.author}</h5>
             <p>{formatDate(article.created_at)}</p>
             <p>{article.votes}</p>
         </section>
+        </Link>
     )
     
 

@@ -13,9 +13,18 @@ export const getArticles = (searchTerm) => {
 }
 
 export const getArticleById= (article_id) => {
-    return articleApi.get(`/articles/${article_id}`).then((response) => {
+    return articleApi
+    .get(`/articles/${article_id}`).then((response) => {
         return response.data.article
     }).catch((err) => {
         console.log(err)
     })
+}
+
+export const getCommentsByArticleId = (article_id) => {
+    return articleApi
+    .get(`/articles/${article_id}/comments`).then((response) => {
+        return response.data.comments
+    })
+
 }
