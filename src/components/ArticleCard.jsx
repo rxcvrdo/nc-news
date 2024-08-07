@@ -24,8 +24,8 @@ function ArticleCard({article}) {
         <section className="article-card">
             <h3 className="article-card-title"> {article.title}</h3>
             <h5>{article.author}</h5>
-            <p>{formatDate(article.created_at)}</p>
-            <p>{article.votes}</p>
+            <p>Date uploaded: {formatDate(article.created_at)}</p>
+            <p>votes: {article.votes}</p>
         </section>
         </Link>
     )
