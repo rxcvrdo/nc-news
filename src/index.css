@@ -1,5 +1,19 @@
 h1{
   text-decoration: none;
+  color:  #da0404;
+}
+
+.scroll-to-top {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #da0404;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease
 }
 
 .article-card{
@@ -64,6 +78,12 @@ select {
 	padding: 5px;
 }
 
+
+.single-article-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .single-article {
   display: flex;
   flex-direction: column;
@@ -74,6 +94,7 @@ select {
   position: relative;
   width: 100%;
 }
+
 
 .article-header {
   display: flex;
@@ -107,4 +128,39 @@ select {
   left: 10px;
   font-size: 0.9em;
   color: grey;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
+.scroll-to-top:hover {
+  background-color: #0056b3;
+
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  font-size: 18px;
+  }
+
+.comments-section {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.comment-card {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.comment-card:last-child {
+  border-bottom: none;
 }
