@@ -7,14 +7,14 @@ import ArticleList from "./components/ArticleList"
 import { useState } from "react"
 import Search from "./components/Search"
 import SingleArticle from "./components/SingleArticle"
+import { UserProvider } from "./contexts/User"
 
 function App() {
 const [searchTerm, setSearchTerm] = useState("")
 
- 
 
   return (
-
+<UserProvider>
     <main>
       <div id="header-nav">
         <Header/>
@@ -30,7 +30,8 @@ const [searchTerm, setSearchTerm] = useState("")
       </Routes>
 
     </main>
-
+    
+    </UserProvider>
   )
 }
 
