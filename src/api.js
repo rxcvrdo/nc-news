@@ -32,5 +32,15 @@ export const getCommentsByArticleId = (article_id) => {
 export const voteOnArticle = (article_id, increment) => {
     return articleApi
     .patch(`articles/${article_id}`,{inc_votes: increment})
-    .then((response) => response.data.article)
+    .then((response) => { 
+        return response.data.article
+    })
+}
+
+export const postComment = (article_id, commentObject) => {
+    return articleApi
+    .post(`articles/${article_id}/comments`, commentObject)
+    .then((response) => {
+        return response.data.comment
+    })
 }

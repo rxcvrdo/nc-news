@@ -31,6 +31,8 @@ img{
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+  border: 3px solid #da0404;
+  border-radius: 15px;
 }
 
 body {
