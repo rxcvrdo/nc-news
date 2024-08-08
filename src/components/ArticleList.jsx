@@ -1,22 +1,27 @@
-import {getArticles} from "../api"
+import {getArticles, getArticlesByTopic} from "../api"
 import ArticleCard from "./ArticleCard"
 import { useEffect, useState } from "react"
 import Loading from "./Loading"
 /* eslint-disable react/prop-types */
 
-function ArticleList({searchTerm}){
+function ArticleList({searchTerm, topic}){
     const [articles, setArticles] = useState([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         setLoading(true)
-        getArticles(searchTerm).then((articles) => {
-            setArticles(articles)
+
+        const fetchArticles = topic ? getArticlesByTopic : getArticles
+        const fetchParam = topic || searchTerm
+       
+        fetchArticles(fetchParam)
+            .then((fetchedArticles) => {
+            setArticles(fetchedArticles)
             setLoading(false)
     }).catch((error) => {
         console.log(error)
     })
-    }, [searchTerm])
+    }, [searchTerm, topic])
 
     const scrollToTop = () => {
         window.scrollTo({

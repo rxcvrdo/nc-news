@@ -60,12 +60,12 @@ export const deleteComment =(commentId) => {
     });
 }
 
-export const getArticlesByTopic = (topicSlug) => {
+export const getArticlesByTopic = (topic) => {
+    console.log(topic)
     return articleApi
-    .get(`/topic/${topicSlug}/articles`)
+    .get(`/articles`, {params: { topic: topic}})
     .then((response) => {
+        console.log(response.data.articles)
         return response.data.articles
-    }).catch((err) => {
-        console.log(err)
     })
 }
