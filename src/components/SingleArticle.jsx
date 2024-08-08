@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useContext, useEffect,useState } from "react"
-import {getArticleById, getCommentsByArticleId, postComment, voteOnArticle} from '../api'
+import {deleteComment, getArticleById, getCommentsByArticleId, postComment, voteOnArticle} from '../api'
 import Loading from '../components/Loading'
 import CommentCard from "./CommentCard"
 import { UserContext } from "../contexts/User"
@@ -78,6 +78,19 @@ function handleChange(event) {
   setNewComment(event.target.value)
 }
 
+function handleDeleteComment(commentId){
+  const updatedComments = comments.filter(comment => comment.comment_id !==commentId)
+  setComments(updatedComments)
+
+  deleteComment(commentId)
+  .then(() => {
+    setComments((prevComments) => prevComments.filter(comment => comment.comment_id !==commentId))
+  })
+  .catch((error) => {
+    console.error('failed to delete comment, try again later!'. error)
+  })
+}
+
 function formatDate(isoString) {
     const date = new Date(isoString);
   
@@ -126,7 +139,8 @@ function formatDate(isoString) {
     </form>
       {comments.length> 0 ? (
         comments.map((comment) => (
-          <CommentCard key={comment.comment_id} comment={comment}/>
+          <CommentCard key={comment.comment_id} comment={comment} 
+          canDelete={comment.author ===user.username} setComments={setComments}/>
         ))
       ): (
         <p>No comments yet.</p>

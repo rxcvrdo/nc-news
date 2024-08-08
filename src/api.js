@@ -44,3 +44,28 @@ export const postComment = (article_id, commentObject) => {
         return response.data.comment
     })
 }
+
+export const deleteComment =(commentId) => {
+    return articleApi
+    .delete(`/comments/${commentId}`)
+    .then((response) => {
+        if (response.status !== 204) {
+            throw new Error('Failed to delete comment');
+        }
+        return response.data;
+    })
+    .catch((error) => {
+        console.error('Error deleting comment:', error.response ? error.response.data : error.message);
+        throw error;
+    });
+}
+
+export const getArticlesByTopic = (topicSlug) => {
+    return articleApi
+    .get(`/topic/${topicSlug}/articles`)
+    .then((response) => {
+        return response.data.articles
+    }).catch((err) => {
+        console.log(err)
+    })
+}
