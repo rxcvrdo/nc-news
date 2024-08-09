@@ -17,7 +17,7 @@ const [newComment, setNewComment] = useState('')
 const [isPosting, setIsPosting] = useState(false)
 const [commentError, setCommentError] = useState(null)
 const {user} = useContext(UserContext)
-
+const [deleteError, setDeleteError] = useState(null)
 useEffect(() => {
   setLoading(true)
     getArticleById(article_id).then((articleObj) => {
@@ -68,7 +68,6 @@ function handleCommentSubmit(event){
     setNewComment('')
     setIsPosting(false)
   }).catch((error) => {
-    console.log(error)
     setCommentError('failed to post comment :( please try again')
     setIsPosting(false)
   })
@@ -87,7 +86,7 @@ function handleDeleteComment(commentId){
     setComments((prevComments) => prevComments.filter(comment => comment.comment_id !==commentId))
   })
   .catch((error) => {
-    console.error('failed to delete comment, try again later!'. error)
+    setDeleteError('failed to delete comment, try again later!')
   })
 }
 

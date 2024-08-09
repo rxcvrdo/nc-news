@@ -14,10 +14,6 @@ import TopicPage from "./components/TopicPage"
 function App() {
 const [searchTerm, setSearchTerm] = useState("")
 
-const topics = [     { slug: "coding", description: "Code is love, code is life" },
-  { slug: "football", description: "FOOTIE!" },
-  { slug: "cooking", description: "Hey good looking, what you got cooking?" },]
-
 
   return (
 <UserProvider>
@@ -26,7 +22,7 @@ const topics = [     { slug: "coding", description: "Code is love, code is life"
         <Header/>
         <Navigation/>
       </div>
-      <TopicDropdown topics={topics}/>
+      <TopicDropdown/>
       <Search setSearchTerm={setSearchTerm}/>
       <Routes>
         <Route path="/articles" element ={
