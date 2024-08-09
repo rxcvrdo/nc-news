@@ -11,6 +11,7 @@ import { UserProvider } from "./contexts/User"
 import TopicDropdown from "./components/TopicDropdown"
 import TopicPage from "./components/TopicPage"
 import NotFound from "./components/NotFound"
+import Home from "./components/Home"
 
 function App() {
 const [searchTerm, setSearchTerm] = useState("")
@@ -26,6 +27,7 @@ const [searchTerm, setSearchTerm] = useState("")
       <TopicDropdown/>
       <Search setSearchTerm={setSearchTerm}/>
       <Routes>
+        <Route path="/" element={<Home/>}/>
         <Route path="/articles" element ={
           <>
 
