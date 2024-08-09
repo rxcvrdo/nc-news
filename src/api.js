@@ -4,9 +4,10 @@ const articleApi = axios.create({
     baseURL:"https://ricardos-news.onrender.com/api/",
 })
 
-export const getArticles = (searchTerm) => {
+export const getArticles = (searchTerm = '', topic = null, sortBy = 'created_at', order = 'desc') => {
     return articleApi
-    .get("/articles", {params: {search: searchTerm}})
+    .get("/articles", {params: {
+        searchTerm, topic, sort_by: sortBy, order}})
     .then((response) => {
         return response.data.articles
     })
@@ -60,12 +61,10 @@ export const deleteComment =(commentId) => {
     });
 }
 
-export const getArticlesByTopic = (topic) => {
-    console.log(topic)
+export const getTopics = () => {
     return articleApi
-    .get(`/articles`, {params: { topic: topic}})
+    .get(`/topics`)
     .then((response) => {
-        console.log(response.data.articles)
-        return response.data.articles
+        return response.data.topics
     })
 }

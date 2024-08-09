@@ -10,13 +10,11 @@ import SingleArticle from "./components/SingleArticle"
 import { UserProvider } from "./contexts/User"
 import TopicDropdown from "./components/TopicDropdown"
 import TopicPage from "./components/TopicPage"
+import NotFound from "./components/NotFound"
+import Home from "./components/Home"
 
 function App() {
 const [searchTerm, setSearchTerm] = useState("")
-
-const topics = [     { slug: "coding", description: "Code is love, code is life" },
-  { slug: "football", description: "FOOTIE!" },
-  { slug: "cooking", description: "Hey good looking, what you got cooking?" },]
 
 
   return (
@@ -26,9 +24,10 @@ const topics = [     { slug: "coding", description: "Code is love, code is life"
         <Header/>
         <Navigation/>
       </div>
-      <TopicDropdown topics={topics}/>
+      <TopicDropdown/>
       <Search setSearchTerm={setSearchTerm}/>
       <Routes>
+        <Route path="/" element={<Home/>}/>
         <Route path="/articles" element ={
           <>
 
@@ -40,6 +39,8 @@ const topics = [     { slug: "coding", description: "Code is love, code is life"
         {""}
         <Route path="/articles/:article_id" element={<SingleArticle/>}/>
         <Route path="/topics/:topicSlug" element={<TopicPage />}/>
+        <Route path="*" element={<NotFound/>}/>
+      
       </Routes>
 
     </main>
