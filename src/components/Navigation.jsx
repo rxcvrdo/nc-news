@@ -14,9 +14,7 @@ function Navigation (){
             <Link to= "/users" element={<Users/>}>users </Link>
             {user && (
                 <Avatar 
-                avatarUrl={user.avatar_url}
-                username={user.username}
-                name={user.name}/>
+                avatarUrl={user.avatar_url}/>
             )}
         </nav>
         </>

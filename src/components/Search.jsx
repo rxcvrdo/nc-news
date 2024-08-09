@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import {useState} from "react"
 /* eslint-disable react/prop-types */
 
@@ -21,15 +23,15 @@ function Search({setSearchTerm}){
     }
 
     return (
-        <>
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="search-input">
+        <div className="search-container">
+        <form  onSubmit={handleSubmit} className="search-form">
+            <label className="search-article-label" htmlFor="search-input">
                 Search Articles 
                 <input id="search-input" value={searchInput} onChange={handleChange} type="text"></input>
-                <button type="submit">Search</button>
+                <button className="search-button"  type="submit"><FontAwesomeIcon icon={faMagnifyingGlass} className='mag-icon'/></button>
             </label>
         </form>
-        </>
+        </div>
     )
 }
 
