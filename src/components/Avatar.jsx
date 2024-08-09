@@ -11,12 +11,7 @@ function toggleDropdown(){
 return (
     <div className="avatar-container">
         <img src={avatarUrl} alt={ `${username}'s avatar`} className="avatar-image" onClick={toggleDropdown} />
-        {dropOpen &&(
-    <div className="dropdown-menu">
-        <p>{username}</p>
-        <p>{name}</p>
-    </div>
-    )}
+  
     </div>
 )
 }

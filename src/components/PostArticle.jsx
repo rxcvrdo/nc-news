@@ -1,7 +1,10 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+
 function PostArticle(){
     return (
         <>
-        <h1>post article</h1>
+        <h1><FontAwesomeIcon icon={faPlus} /></h1>
         </>
     )
 }

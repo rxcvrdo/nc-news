@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import Header from "./components/Header"
 import Navigation from "./components/Navigation"
 import { Route, Routes } from "react-router-dom"
@@ -21,11 +23,10 @@ const [searchTerm, setSearchTerm] = useState("")
 <UserProvider>
     <main>
       <div id="header-nav">
-        <Header/>
+        <Header setSearchTerm={setSearchTerm}/> 
         <Navigation/>
       </div>
       <TopicDropdown/>
-      <Search setSearchTerm={setSearchTerm}/>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/articles" element ={
