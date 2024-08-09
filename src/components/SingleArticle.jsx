@@ -11,6 +11,7 @@ function SingleArticle(){
 const [comments, setComments] = useState([])
 const [singleArticle, setSingleArticle] = useState({})
 const {article_id} = useParams()
+const [error, setError] = useState(null)
 const [loading, setLoading]=useState(true)
 const [voteError, setVoteError] = useState(null)
 const [newComment, setNewComment] = useState('')
@@ -18,6 +19,7 @@ const [isPosting, setIsPosting] = useState(false)
 const [commentError, setCommentError] = useState(null)
 const {user} = useContext(UserContext)
 const [deleteError, setDeleteError] = useState(null)
+
 useEffect(() => {
   setLoading(true)
     getArticleById(article_id).then((articleObj) => {
@@ -28,7 +30,12 @@ useEffect(() => {
       setComments(comments)
       setLoading(false)
     }).catch((error) => {
-      console.log(error)
+      if (error.response?.status === 404) {
+        setError('Article not found')
+      } else { 
+        setError('something has gone terribly wrong')
+      }
+    
     })
 }, [article_id])
 
@@ -105,6 +112,10 @@ function formatDate(isoString) {
 
   if(loading){
     return <Loading/>
+  }
+
+  if (error){
+    return <div>{error}</div>
   }
 
     return (

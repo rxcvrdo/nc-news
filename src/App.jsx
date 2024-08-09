@@ -10,6 +10,7 @@ import SingleArticle from "./components/SingleArticle"
 import { UserProvider } from "./contexts/User"
 import TopicDropdown from "./components/TopicDropdown"
 import TopicPage from "./components/TopicPage"
+import NotFound from "./components/NotFound"
 
 function App() {
 const [searchTerm, setSearchTerm] = useState("")
@@ -36,6 +37,8 @@ const [searchTerm, setSearchTerm] = useState("")
         {""}
         <Route path="/articles/:article_id" element={<SingleArticle/>}/>
         <Route path="/topics/:topicSlug" element={<TopicPage />}/>
+        <Route path="*" element={<NotFound/>}/>
+      
       </Routes>
 
     </main>
