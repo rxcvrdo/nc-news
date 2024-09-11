@@ -35,29 +35,7 @@ The backend for this application is hosted separately. You can view the reposito
 ## Requirements
 - Node.js v22.2.0 or higher
 
-## Running the Project Locally
 
-1. **Clone the Repository:**
-   ```bash
-   git clone https://github.com/rxcvrdo/nc-news
-Navigate into the Project Directory:
-
-bash
-Copy code
-cd frontend-repo
-Install Dependencies:
-
-bash
-Copy code
-npm install
-Start the Development Server:
-
-bash
-Copy code
-npm start
-This will start the application on http://localhost:3000 by default.
-
-Open your browser and navigate to http://localhost:3000 to view the application.
 
 
 ### Acknowledgements
