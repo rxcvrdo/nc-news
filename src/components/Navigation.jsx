@@ -5,6 +5,7 @@ import Avatar from "./Avatar"
 import { UserContext } from "../contexts/User"
 import { useContext } from "react"
 
+
 function Navigation (){
     const {user} = useContext(UserContext)
     return (

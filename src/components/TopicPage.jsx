@@ -39,7 +39,6 @@ function TopicPage(){
 
     return (
         <div id="articles-by-topic">
-            <h1>Articles for {topicSlug}</h1>
             <ArticleList topic={topicSlug}/>
 
         </div>

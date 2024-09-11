@@ -26,9 +26,8 @@ function Search({setSearchTerm}){
         <div className="search-container">
         <form  onSubmit={handleSubmit} className="search-form">
             <label className="search-article-label" htmlFor="search-input">
-                Search Articles 
-                <input id="search-input" value={searchInput} onChange={handleChange} type="text"></input>
-                <button className="search-button"  type="submit"><FontAwesomeIcon icon={faMagnifyingGlass} className='mag-icon'/></button>
+                <input id="search-input" placeholder='Search Articles ' value={searchInput} onChange={handleChange} type="text"></input>
+                
             </label>
         </form>
         </div>
