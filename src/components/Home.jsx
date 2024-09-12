@@ -8,6 +8,7 @@ function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+
     getUsers().then((fetchedUsers) => {
       setUsers(fetchedUsers);
       setLoading(false);

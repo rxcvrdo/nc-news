@@ -4,6 +4,14 @@ const articleApi = axios.create({
     baseURL:"https://ricardos-news.onrender.com/api/",
 })
 
+ export const getUsers = () => {
+    return articleApi
+    .get("/users")
+    .then((response) => {
+        return response.data.users
+    })
+}
+
 export const getArticles = (searchTerm = '', topic = null, sortBy = 'created_at', order = 'desc') => {
     return articleApi
     .get("/articles", {params: {
