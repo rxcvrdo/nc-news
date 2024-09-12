@@ -11,33 +11,47 @@ import TopicDropdown from "./components/TopicDropdown";
 import TopicPage from "./components/TopicPage";
 import NotFound from "./components/NotFound";
 import Home from "./components/Home";
-import Sidebar from "./components/SideBar"
+import Sidebar from "./components/SideBar";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
+  const [loggedIn, setLoggedIn] = useState(false);
 
   return (
     <UserProvider>
-      <div id="header-nav">
-        <Header setSearchTerm={setSearchTerm} />
-        <Navigation />
-      </div>
-      <div className="app-container">
-        <Sidebar />
-        <main className="main-content">
+      <div>
+        {loggedIn ? (
+          <>
+            <div id="header-nav">
+              <Header setSearchTerm={setSearchTerm} setLoggedIn={setLoggedIn} />
+              <Navigation setLoggedIn={setLoggedIn} />
+            </div>
+            <div className="app-container">
+              <Sidebar />
+              <main className="main-content">
+                <Routes>
+                  <Route
+                    path="/articles"
+                    element={<ArticleList searchTerm={searchTerm} />}
+                  />
+                  <Route path="/post-article" element={<PostArticle />} />
+                  <Route path="/users" element={<Users />} />
+                  <Route
+                    path="/articles/:article_id"
+                    element={<SingleArticle />}
+                  />
+                  <Route path="/topics/:topicSlug" element={<TopicPage />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </main>
+            </div>
+          </>
+        ) : (
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route
-              path="/articles"
-              element={<ArticleList searchTerm={searchTerm} />}
-            />
-            <Route path="/post-article" element={<PostArticle />} />
-            <Route path="/users" element={<Users />} />
-            <Route path="/articles/:article_id" element={<SingleArticle />} />
-            <Route path="/topics/:topicSlug" element={<TopicPage />} />
-            <Route path="*" element={<NotFound />} />
+            <Route path="/" element={<Home setLoggedIn={setLoggedIn} />} />
+            <Route path="*" element={<Home setLoggedIn={setLoggedIn} />} />
           </Routes>
-        </main>
+        )}
       </div>
     </UserProvider>
   );
