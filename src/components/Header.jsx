@@ -16,4 +16,27 @@ function Header({setSearchTerm}){
     )
 }
 
-export default Header
+ export default Header
+
+// function Header({ setSearchTerm, setLoggedIn }) {
+//     function handleLogout() {
+//       setLoggedIn(false); // Set loggedIn to false
+//     }
+  
+//     return (
+//       <>
+//         <h1>
+//           <Link to="/articles">^ NC NEWS</Link>
+//         </h1>
+//         <input
+//           type="text"
+//           placeholder="Search Articles"
+//           onChange={(e) => setSearchTerm(e.target.value)}
+//         />
+//         <button onClick={handleLogout}>Logout</button> {/* Add logout button */}
+//       </>
+//     );
+//   }
+  
+//   export default Header;
+  
