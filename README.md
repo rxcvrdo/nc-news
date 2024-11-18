@@ -11,7 +11,7 @@ Currently, two official plugins are available:
 
 ## Deployed Version
 You can view the deployed version of the application at:
- (https://rx-news.netlify.app)
+ (https://rx-news.netlify.app/)
 
 ## Project Description
 My News App is a web application that allows users to view and interact with articles. Users can give votes to articles they like. they can also sort articles in a variety of ways, including sorting them by votes, comment count, and by the date the article was uploaded (ascending and descending order). in the near future users will be able to upload their own posts with additional features coming. watch this space!
